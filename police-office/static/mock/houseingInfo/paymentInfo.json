@@ -1,0 +1,56 @@
+{
+  "status": "",
+  "msg": "",
+  "code": "",
+  "data": {
+    "list": [
+      {
+        "year": "2019",
+        "month": "12",
+        "propertyFee": "124.23",
+        "propertyFeeStatus": "已缴纳",
+        "waterUse": "4.5",
+        "waterFee": "28.2",
+        "waterFeeStatus": "未缴纳"
+      },
+      {
+        "year": "2019",
+        "month": "12",
+        "propertyFee": "124.23",
+        "propertyFeeStatus": "已缴纳",
+        "waterUse": "4.5",
+        "waterFee": "28.2",
+        "waterFeeStatus": "未缴纳"
+      },
+      {
+        "year": "2019",
+        "month": "12",
+        "propertyFee": "124.23",
+        "propertyFeeStatus": "已缴纳",
+        "waterUse": "4.5",
+        "waterFee": "28.2",
+        "waterFeeStatus": "未缴纳"
+      },
+      {
+        "year": "2019",
+        "month": "12",
+        "propertyFee": "124.23",
+        "propertyFeeStatus": "已缴纳",
+        "waterUse": "4.5",
+        "waterFee": "28.2",
+        "waterFeeStatus": "未缴纳"
+      },
+      {
+        "year": "2019",
+        "month": "12",
+        "propertyFee": "124.23",
+        "propertyFeeStatus": "已缴纳",
+        "waterUse": "4.5",
+        "waterFee": "28.2",
+        "waterFeeStatus": "未缴纳"
+      }
+    ],
+    "totalRows": 4,
+    "currentPage": ""
+  }
+}

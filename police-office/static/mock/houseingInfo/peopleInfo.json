@@ -1,0 +1,51 @@
+{
+  "status": "",
+  "msg": "",
+  "code": "",
+  "data": {
+    "list": [
+      {
+        "ownerName": "孙金龙",
+        "sex": "男",
+        "extendI1": "产权人",
+        "paperNumber": "370375839327464727",
+        "image": "https://wx2.sinaimg.cn/mw690/d79089c5ly1g9rt8jq7xcj21o02yo4qq.jpg",
+        "phone": "13547836453"
+      },
+      {
+        "ownerName": "孙慧丽",
+        "sex": "女",
+        "extendI1": "产权人",
+        "paperNumber": "370375839327464727",
+        "image": "https://wx2.sinaimg.cn/mw690/d79089c5ly1g9rt8jq7xcj21o02yo4qq.jpg",
+        "phone": "13547836453"
+      },
+      {
+        "ownerName": "李丹",
+        "sex": "女",
+        "extendI1": "产权人",
+        "paperNumber": "370375839327464727",
+        "image": "https://wx2.sinaimg.cn/mw690/d79089c5ly1g9rt8jq7xcj21o02yo4qq.jpg",
+        "phone": "13547836453"
+      },
+      {
+        "ownerName": "徐上",
+        "sex": "男",
+        "extendI1": "产权人",
+        "paperNumber": "370375839327464727",
+        "image": "https://wx2.sinaimg.cn/mw690/d79089c5ly1g9rt8jq7xcj21o02yo4qq.jpg",
+        "phone": "13547836453"
+      },
+      {
+        "ownerName": "孙金龙",
+        "sex": "男",
+        "extendI1": "产权人",
+        "paperNumber": "370375839327464727",
+        "image": "https://wx2.sinaimg.cn/mw690/d79089c5ly1g9rt8jq7xcj21o02yo4qq.jpg",
+        "phone": "13547836453"
+      }
+    ],
+    "totalRows": 4,
+    "currentPage": ""
+  }
+}

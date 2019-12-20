@@ -1,0 +1,56 @@
+{
+  "status": "",
+  "msg": "",
+  "code": "",
+  "data": {
+    "list": [
+      {
+        "xqCode": "",
+        "xqName": "月亮湾",
+        "buildingName": "32号楼",
+        "cellName": "1单元",
+        "roomName": "201室",
+        "isRented": "闲置",
+        "roomOwner": "张帅",
+        "liveNum": "3",
+        "buildingArea": "98",
+        "purposeName": "自住",
+        "funcName": "居民房屋",
+        "bindingCarNum": "2",
+        "roomId": "3"
+      },
+      {
+        "xqCode": "",
+        "xqName": "建邦听海",
+        "buildingName": "14号楼",
+        "cellName": "4单元",
+        "roomName": "301室",
+        "isRented": "闲置",
+        "roomOwner": "王鹏",
+        "liveNum": "3",
+        "buildingArea": "98",
+        "purposeName": "自住",
+        "funcName": "居民房屋",
+        "bindingCarNum": "2",
+        "roomId": "3"
+      },
+      {
+        "xqCode": "",
+        "xqName": "海尔山海湾",
+        "buildingName": "11号楼",
+        "cellName": "1单元",
+        "roomName": "304室",
+        "isRented": "闲置",
+        "roomOwner": "张帅",
+        "liveNum": "8",
+        "buildingArea": "91",
+        "purposeName": "自住",
+        "funcName": "居民房屋",
+        "bindingCarNum": "2",
+        "roomId": "3"
+      }
+    ],
+    "totalRows": 4,
+    "currentPage": ""
+  }
+}

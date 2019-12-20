@@ -1,0 +1,447 @@
+@mixin border-radius {
+  box-shadow: 5px 5px 10px #ccc;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
+/* 定义通用表格样式 */
+@mixin table-style {}
+
+/* 修改ui框架的样式 */
+.white-text {
+  color: $white-text
+}
+
+.green-text {
+  color: $green-text
+}
+
+.purple-text {
+  color: $purple-text
+}
+
+.gray-text {
+  color: $gray-text
+}
+
+/* element-ui样式修改 */
+
+/*头部下拉框部分 */
+.select .el-input__inner {
+  border: 0;
+  background: $opacity-color !important;
+  width: 250px;
+  font-size: 18px;
+  color: #ffffff !important;
+  text-align: center;
+}
+
+/* 搜索框下拉框*/
+.selectBox1 .el-input__inner {
+  width: 150px;
+  font-size: 14px;
+  text-align: center;
+  height: 34px;
+  color: #333333 !important;
+}
+
+.selectBox1 li .el-input__inner {
+  width: 250px;
+  font-size: 14px;
+  text-align: left;
+  height: 34px;
+  display: inline-block !important;
+  margin-left: 30px;
+}
+
+/* 时间选择框 */
+.selectBox1 .el-date-editor {
+  width: 380px;
+  padding: 0 10px !important;
+}
+
+/* 月时间选择 */
+.selectBox1 .mouthPick {
+    i{
+        color: #333333;
+        margin-right: 6px;
+    }
+    .el-input__suffix{
+      right: 20px;
+    }
+    float: left;
+    .el-date-editor{
+        width: 180px;
+        padding: 0 10px!important;
+        .el-input__icon{
+            line-height: 1px!important;
+            margin-left: 10px;
+        }
+    }
+}
+
+.selectBox1 .el-input__suffix-inner .el-select__caret {
+  margin-top: 5px;
+}
+
+.selectBox1 .is-reverse {
+  margin-top: -2px !important;
+}
+
+/* 表格部分 */
+.table thead tr th {
+  background: $opacity-color;
+  border: 0 !important;
+  color: #FEFEFE;
+  text-align: center;
+  height: 20px !important;
+  padding: 5px 0;
+}
+
+.table .el-table td {
+  border: 0 !important;
+  padding: 7px 0;
+  line-height: 18px;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap !important;
+  color: #ffffff;
+}
+
+.table .el-table td .cell {
+  white-space: nowrap !important;
+}
+
+.table tbody {
+  border: 0 !important;
+}
+
+.table tbody td {
+  background: $opacity-color;
+}
+
+.table tbody tr:nth-child(even) td {
+  background: $table-opacity-even-color;
+}
+
+.table .el-table {
+  background: $opacity-color;
+}
+
+.table .el-table tbody tr:hover>td {
+  background-color: #5fc9fb !important;
+  cursor: pointer;
+
+}
+
+.table .el-table th,
+.el-table tr {
+  background-color: $opacity-color !important;
+}
+
+/* 很关键下面会有白杠 */
+.table .el-table::before {
+  background-color: $opacity-color !important;
+}
+
+
+/* 实有房产的表格部分 */
+.table2 {
+  thead tr th {
+    background: $table2-bg-color;
+    border: 0 !important;
+    color: #333333;
+    text-align: center;
+    height: 20px !important;
+    padding: 10px 0;
+    font-weight: 900;
+  }
+
+  .el-table td {
+    border: 0 !important;
+    padding: 7px 0;
+    line-height: 18px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap !important;
+    color: #333333;
+  }
+
+  .el-table td .cell {
+    white-space: nowrap !important;
+  }
+
+  tbody {
+    border: 0 !important;
+  }
+
+  tbody td {
+    background: $table2-bg-color;
+  }
+
+  tbody tr:nth-child(even) td {
+    background: $table2-bg-even-color;
+  }
+
+  .el-table {
+    background: $table2-bg-color;
+  }
+
+  .el-table tbody tr:hover>td {
+    background-color: #5FC9FB !important;
+    cursor: pointer;
+  }
+
+  /* 很关键下面会有白杠 */
+  .el-table::before {
+    background-color: $table2-bg-color;
+  }
+}
+
+
+/* 实有房产翻页 */
+.table2 {
+
+  .el-pagination.is-background .btn-next,
+  .el-pagination.is-background .btn-prev,
+  .el-pagination.is-background .el-pager li {
+    color: $gray-text;
+    font-size: 12px;
+    //background:#2F324B!important;
+    box-shadow: 0px 1px 8px 0px rgba(28, 31, 52, 0.99);
+  }
+}
+
+.table2 {
+  .el-pagination.is-background .el-pager li:not(.disabled).active {
+    background: #3db7ed;
+  }
+}
+
+.table2 .el-pagination__jump {
+  color: $gray-text !important;
+  font-weight: 900 !important;
+}
+/* 表格里的照片 */
+.cell img{
+  display: inline-block;
+}
+//滚动条样式
+
+::-webkit-scrollbar {
+  width: 5px;
+  /*对垂直流动条有效*/
+  height: 5px;
+  /*对水平流动条有效*/
+}
+
+/*定义滚动条的轨道颜色、内阴影及圆角*/
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: rosybrown;
+  border-radius: 3px;
+
+}
+
+
+/*定义滑块颜色、内阴影及圆角*/
+::-webkit-scrollbar-thumb {
+  border-radius: 7px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: #E8E8E8;
+  margin: 0 auto;
+}
+
+/*定义两端按钮的样式*/
+::-webkit-scrollbar-button {
+  background-color: cyan;
+  display: none;
+}
+
+/*定义右下角汇合处的样式*/
+::-webkit-scrollbar-corner {
+  background: khaki;
+}
+
+.legend {
+  text-align: center;
+}
+
+/* 新增人员布控弹窗 */
+.personAdd .el-dialog{
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  top: -50px;
+  margin: auto;
+  width:625px;
+  height: 720px;
+  border-radius: 4px;
+  .el-dialog__header{
+    font-size: 16px;
+    font-weight: 900;
+    .el-dialog__title{
+      color:rgba(59,169,230,1);
+    }
+  }
+  .img2{
+    border: 1px dashed #999999;
+ }
+ .img {
+   float: left;
+   width: 100px;
+   height: 110px;
+   margin-right: 50px;
+   overflow: hidden;
+   position: relative;
+   input{
+     width: 100%;
+     height:110px;
+     opacity: 0;
+     position: absolute;
+     z-index: 1000;
+     cursor: pointer;
+   }
+   i{
+     position: absolute;
+     top: 0;
+     left: 0;
+     bottom: 0;
+     right: 0;
+     margin: auto;
+     font-size: 25px;
+     z-index: 100;
+     width: 25px;
+     height: 25px;
+   }
+   img {
+     width: 100px;
+     height: 110px;
+   }
+ }
+}
+.carAdd .el-dialog{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0px;
+  margin: auto;
+  width:625px;
+  height: 474px;
+  border-radius: 4px;
+  .el-dialog__header{
+    font-size: 16px;
+    font-weight: 900;
+    .el-dialog__title{
+      color:rgba(59,169,230,1);
+    }
+  }
+  .img2{
+    border: 1px dashed #999999;
+ }
+ .img {
+   float: left;
+   width: 100px;
+   height: 110px;
+   margin-right: 50px;
+   overflow: hidden;
+   position: relative;
+   input{
+     width: 100%;
+     height:110px;
+     opacity: 0;
+     position: absolute;
+     z-index: 1000;
+     cursor: pointer;
+   }
+   i{
+     position: absolute;
+     top: 0;
+     left: 0;
+     bottom: 0;
+     right: 0;
+     margin: auto;
+     font-size: 25px;
+     z-index: 100;
+     width: 25px;
+     height: 25px;
+   }
+   img {
+     width: 100px;
+     height: 110px;
+   }
+ }
+}
+.personAdd .dialog-footer{
+  text-align: center;
+}
+.carAdd .dialog-footer{
+  text-align: center;
+}
+/* 删除弹窗 */
+
+.carDelete,.personDelete{
+  .el-dialog{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 200px;
+    margin: auto;
+    width:625px;
+    height: 288px;
+    border-radius: 4px;
+    .el-dialog__header{
+      font-size: 16px;
+      font-weight: 900;
+      .el-dialog__title{
+        color:rgba(59,169,230,1);
+      }
+    }
+    .el-dialog__body{
+      margin-top:40px;
+      text-align: center;
+    }
+    .el-dialog__footer{
+      position:absolute;
+      bottom: 0;
+      width: 100%;
+    }
+    .dialog-footer{
+      text-align: center;
+    }
+  }
+}
+
+/* 登录 */
+.login {
+  overflow: hidden;
+  .el-form{
+    margin:120px 0 0 80px;
+    .el-form-item__label{
+      color: #fff;
+    }
+  }
+  .form .el-form-item__label,.form .el-form-item__content{ 
+    margin-top:30px;
+  }
+  .el-checkbox__label{
+    color:#fff;
+  }
+  .el-checkbox__input.is-checked+.el-checkbox__label{
+    font-weight: 900;
+    color: #fff;
+  }
+  .el-button{
+    margin-top:20px;
+    width: 300px;
+    font-size: 18px;
+    margin-left: 15px;
+  }
+}
+/* 布控库弹窗 */
+.bank .el-dialog,.police-room .el-dialog{
+  margin-top:300px!important;
+}

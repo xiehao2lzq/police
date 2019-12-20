@@ -1,0 +1,101 @@
+{
+  "status": "",
+  "msg": "",
+  "code": "",
+  "data": {
+    "list": [
+      {
+        "buildingArea": 1,
+        "purposeName": "自住",
+        "funcName": "居民房屋",
+        "xqCode": "",
+        "xqName": "月亮湾",
+        "buildingName": "3号楼",
+        "cellName": "2单元",
+        "roomName": "201室",
+        "isRented": "闲置",
+        "roomOwner": "张帅",
+        "ownerPhone": "15965478534",
+        "arrearageNum": "398",
+        "arrearageTime": "3"
+      },
+      {
+        "buildingArea": 1,
+        "purposeName": "自住",
+        "funcName": "居民房屋",
+        "xqCode": "",
+        "xqName": "月亮湾",
+        "buildingName": "3号楼",
+        "cellName": "2单元",
+        "roomName": "201室",
+        "isRented": "闲置",
+        "roomOwner": "张帅",
+        "ownerPhone": "15965478534",
+        "arrearageNum": "398",
+        "arrearageTime": "3"
+      },
+      {
+        "buildingArea": 1,
+        "purposeName": "自住",
+        "funcName": "居民房屋",
+        "xqCode": "",
+        "xqName": "汇祥花园",
+        "buildingName": "3号楼",
+        "cellName": "2单元",
+        "roomName": "201室",
+        "isRented": "闲置",
+        "roomOwner": "张帅",
+        "ownerPhone": "15965478534",
+        "arrearageNum": "398",
+        "arrearageTime": "3"
+      },
+      {
+        "buildingArea": 1,
+        "purposeName": "自住",
+        "funcName": "居民房屋",
+        "xqCode": "",
+        "xqName": "鲁商蓝岸",
+        "buildingName": "3号楼",
+        "cellName": "2单元",
+        "roomName": "201室",
+        "isRented": "闲置",
+        "roomOwner": "张帅",
+        "ownerPhone": "15965478534",
+        "arrearageNum": "398",
+        "arrearageTime": "3"
+      },
+      {
+        "buildingArea": 1,
+        "purposeName": "自住",
+        "funcName": "居民房屋",
+        "xqCode": "",
+        "xqName": "天泰 阳光海岸",
+        "buildingName": "3号楼",
+        "cellName": "2单元",
+        "roomName": "201室",
+        "isRented": "闲置",
+        "roomOwner": "张帅",
+        "ownerPhone": "15965478534",
+        "arrearageNum": "398",
+        "arrearageTime": "3"
+      },
+      {
+        "buildingArea": 1,
+        "purposeName": "自住",
+        "funcName": "居民房屋",
+        "xqCode": "",
+        "xqName": "天泰 阳光海岸",
+        "buildingName": "3号楼",
+        "cellName": "2单元",
+        "roomName": "201室",
+        "isRented": "闲置",
+        "roomOwner": "张帅",
+        "ownerPhone": "15965478534",
+        "arrearageNum": "398",
+        "arrearageTime": "3"
+      }
+    ],
+    "totalRows": 4,
+    "currentPage": ""
+  }
+}

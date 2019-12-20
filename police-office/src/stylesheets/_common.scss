@@ -1,0 +1,36 @@
+/* 解决高度塌陷 */
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* 整体背景色 */
+$bg-color:#bcd6ed;
+/* 模块背景色 */
+$box-color:#f5f9fc;
+.boxColor {
+  background: $box-color;
+  border-radius: 4px;
+}
+/* 透明配色 */
+$opacity-color:rgba(0,0,0,0);
+/* 透明表格单行配色 */
+$table-opacity-even-color:#838383;
+/* 二级目录表格颜色 */
+$table2-bg-color:#F5F9FC;
+/* 二级目录表格单行颜色 */
+$table2-bg-even-color:#E0EDF9;
+/* 阴影透明模块样式 */
+.box-opacity {
+  background: rgba(43, 51, 62, 0.7);
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+/*  */
+/* 字体颜色集合*/
+$white-text:#ffffff;
+$green-text:#23D7D2;
+$purple-text:#9D75EC;
+$gray-text:#8387A2;

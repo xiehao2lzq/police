@@ -1,0 +1,35 @@
+{
+  "status": "",
+  "msg": "",
+  "code": "",
+  "data": {
+    "list": [
+      {
+        "carNum": "鲁B0P3P4",
+        "carNumColorName": "黑色",
+        "carBrandName": "沃尔沃",
+        "image": "https://ww4.sinaimg.cn/thumb150/70683244gw1f1fkcucsaoj218w0u0jw6.jpg"
+      },
+      {
+        "carNum": "鲁B0P3P4",
+        "carNumColorName": "黑色",
+        "carBrandName": "沃尔沃",
+        "image": "https://ww4.sinaimg.cn/thumb150/70683244gw1f1fkcucsaoj218w0u0jw6.jpg"
+      },
+      {
+        "carNum": "鲁B0P3P4",
+        "carNumColorName": "黑色",
+        "carBrandName": "沃尔沃",
+        "image": "https://ww4.sinaimg.cn/thumb150/70683244gw1f1fkcucsaoj218w0u0jw6.jpg"
+      },
+      {
+        "carNum": "鲁B0P3P4",
+        "carNumColorName": "黑色",
+        "carBrandName": "沃尔沃",
+        "image": "https://ww4.sinaimg.cn/thumb150/70683244gw1f1fkcucsaoj218w0u0jw6.jpg"
+      }
+    ],
+    "totalRows": 4,
+    "currentPage": ""
+  }
+}

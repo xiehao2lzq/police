@@ -1,0 +1,70 @@
+{
+  "status": "",
+  "msg": "",
+  "code": "",
+  "data": {
+    "list": [
+      {
+        "type": "特殊人群",
+        "name": "王小虎",
+        "remark": "上海市普陀区金沙江路 1518 弄",
+        "carsNum": 245,
+        "opUser": "",
+        "faceTypeName": "",
+        "id": "",
+        "personName": "",
+        "personTel": "",
+        "personPaperNum": ""
+      },
+      {
+        "type": "特殊人群",
+        "name": "李想",
+        "remark": "上海市普陀区金沙江路 1518 弄",
+        "carsNum": 62,
+        "opUser": "",
+        "faceTypeName": "",
+        "id": "",
+        "personName": "",
+        "personTel": "",
+        "personPaperNum": ""
+      },
+      {
+        "type": "特殊人群",
+        "name": "张晓晓",
+        "remark": "黄岛区",
+        "carsNum": 114,
+        "faceTypeName": "",
+        "id": "",
+        "personName": "",
+        "personTel": "",
+        "personPaperNum": ""
+      },
+      {
+        "type": "特殊人群",
+        "name": "崔超",
+        "remark": "上海市普陀区金沙江路 1518 弄",
+        "carsNum": 123,
+        "opUser": "",
+        "faceTypeName": "",
+        "id": "",
+        "personName": "",
+        "personTel": "",
+        "personPaperNum": ""
+      },
+      {
+        "type": "特殊人群",
+        "name": "林纾生",
+        "remark": "黄岛区光谷软件园",
+        "carsNum": 10,
+        "opUser": "",
+        "faceTypeName": "",
+        "id": "",
+        "personName": "",
+        "personTel": "",
+        "personPaperNum": ""
+      }
+    ],
+    "totalRows": 1,
+    "currentPage": ""
+  }
+}
