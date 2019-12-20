@@ -1,0 +1,241 @@
+$bg-color:#111531;
+//人脸布控表格部分
+.el-table__body-wrapper{
+    background:#0f193d;
+}
+.el-table{
+    background:#0f193d;
+}
+
+//人脸布控分页部分
+.el-date-editor .el-range-input{
+    background: #0f193d;
+    color:#fff;
+}
+.el-range-separator{
+    color:#fff!important;
+}
+//总计
+.el-pagination__total{
+    color:#fff;
+    float:right;
+    margin:0.05rem 0;
+}
+//多少条每页
+p .el-select>.el-input{
+    width: 1.3rem;
+    font-size: 0.18rem;
+    //background: #0f193d;
+    color:#fff;
+    
+}
+.el-input__inner{
+    background: #0f193d;
+    color:#fff;
+}
+//人名搜索选框
+.el-select__input{
+    color: #fff;
+}
+.el-tag{
+    background: rgba(0,0,0,0)!important;
+    outline: 0;
+    border:0;
+}
+.el-tag--info{
+    color:#fff!important;
+    font-size: 0.14rem;
+}
+.el-tag--small{
+    height: 24px;
+    padding: 0 12px;
+    line-height: 22px;
+}
+.el-select .el-tag__close.el-icon-close{
+    background: rgba(0,0,0,0);
+    border:1px solid #fff;
+    color:#fff;
+}
+//选项部分
+.el-pagination.is-background .btn-next, .el-pagination.is-background .btn-prev, .el-pagination.is-background .el-pager li{
+    margin: 0;
+     background-color: #0f193d; 
+    color: #fff;
+    min-width: 30px;
+    border-radius:0;
+ }
+ .el-pagination.is-background.el-pagination--small .btn-next, .el-pagination.is-background.el-pagination--small .btn-prev, .el-pagination.is-background.el-pagination--small .el-pager li{
+     margin:0.05rem 0;
+ }
+ .el-pagination__jump{
+     color:#fff;
+     margin:0.05rem 0.05rem;
+     display: block;
+     float: right;
+ }
+ .el-pagination{
+     margin: 0.1rem 0.1rem;;
+     overflow: hidden;
+ } 
+
+ //滚动条样式
+
+::-webkit-scrollbar {
+    width: 5px; /*对垂直流动条有效*/
+    height: 5px; /*对水平流动条有效*/
+}
+
+/*定义滚动条的轨道颜色、内阴影及圆角*/
+::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: rosybrown;
+    border-radius: 3px;
+    
+}
+
+
+/*定义滑块颜色、内阴影及圆角*/
+::-webkit-scrollbar-thumb{
+    border-radius: 7px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #E8E8E8;
+    margin:0 auto;
+}
+
+/*定义两端按钮的样式*/
+::-webkit-scrollbar-button {
+    background-color:cyan;
+    display: none;
+}
+
+/*定义右下角汇合处的样式*/
+::-webkit-scrollbar-corner {
+    background:khaki;
+}
+
+
+  //视频播放按钮样式
+  .vjs-big-play-button{
+    /*
+     播放按钮换成圆形
+    */
+   height: 2em!important;
+   width: 2em!important;
+   line-height: 2em!important;
+   border-radius: 1em!important;
+ }
+//historyinfo页面未处理的字变红
+ .warning-row .cell{
+   color:red;
+   cursor: pointer;
+  }
+  .success-row .cell{
+    cursor: pointer; 
+  }
+
+  .el-table__empty-text{
+      font-size: 0.3rem;
+  }
+  /* 陌生人处理部分的 */
+  .select .el-select .el-input .el-input__inner {
+       height: 0.3rem;
+       font-size: 0.16rem;
+       background: rgba($color: #f0e4e4, $alpha: 0);
+       border:1px solid #287cd2;
+  }
+
+  .select .el-input__icon{
+    height: 0.3rem!important;
+    line-height: 0.3rem;
+  }
+  .personInfo .el-input__inner{
+      background:rgba($color: #f0e4e4, $alpha: 0);
+      width: 1.5rem;
+      float: left;
+      height: 0.3rem;
+      border:1px solid #287cd2;
+  }
+  .personInfo .el-input{
+    width: 1.5rem;
+  }
+  //修改样式,表格
+  .el-table--border::after, .el-table--group::after, .el-table::before{
+     background-color:#37477F;
+  }
+  .el-table--border{
+      border:1px solid #37477F;
+  }
+  .el-table--border {
+    border-right: none;
+    border-bottom: none;
+}
+.el-table td,.el-table th.is-leaf {
+    border-bottom: 1px solid #37477F;
+}
+.el-table--border td, .el-table--border th, .el-table__body-wrapper .el-table--border.is-scrolling-left~.el-table__fixed {
+    border-right: 1px solid #37477F;
+}
+/* .info tr th:last-child{
+    border-right: none;
+} */
+.el-table thead,.el-table{
+     color:#fff;
+ }
+ .el-table__row{
+     height: 0.2rem!important;
+ }
+ //地图中的点击出来提示框
+ .amap-info-content b,.amap-info-content div{
+     color: #0f193d;
+ }
+ .el-table__row{
+     cursor: pointer;
+ }
+ .selectRow{
+     color:pink ;
+ }
+ //人员信息二级页面男女比例样式
+ .g2-guide-html {
+    width: 1.2rem;
+    height: 0.2rem;
+    text-align: center;
+    span{
+        padding:0 0.05rem;
+    }
+}
+.g2-guide-html2 {
+    width: 0.8rem;
+    height: 0.8rem;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 0.8rem;
+}
+.g2-guide-html2 .man{
+    width:0.3rem;
+    height: 0.8rem;
+    display: inline-block;
+}
+.searchbox .el-input__inner{
+    font-size: 0.14rem!important;
+    color: #C0C4CC;
+}
+.el-button--warning1{
+    background: #FD9C79;
+    border-color: #FD9C79;
+    color: #fff;
+}
+.el-button--warning1:hover{
+    background: #cc917c;
+    border-color: #cc917c;
+    color: #fff;
+}
+.el-button--success{
+    background: #1DA06C;
+    border-color: #1DA06C;
+    color: #fff;
+}
+.el-button--success:hover{
+    background: #65b192;
+    border-color: #65b192;
+    color: #fff;
+}
