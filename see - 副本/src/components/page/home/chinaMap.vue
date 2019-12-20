@@ -5,9 +5,9 @@
       <div id="mapChart" class="chart"></div>
       <div class="rightBox">
         <p class="title">项目总数</p>
-        <p class="num">{{chinaMap.amountSum||""}}</p>
+        <p class="num">{{12||chinaMap.amountSum}}</p>
         <p class="title">管理面积</p>
-        <p class="num">{{chinaMap.areaSum||""}}</p>
+        <p class="num">{{249800||chinaMap.areaSum}}</p>
         <div class="more" @click="lookMore" v-if="isshow">查看小区详情>></div>
       </div>
     </div>
