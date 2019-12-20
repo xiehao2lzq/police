@@ -1,0 +1,14 @@
+/* 解决高度塌陷 */
+.clearfix::after{
+    content:"";
+    display: block;
+    clear: both;
+}
+/* 背景色 */
+$bg-color:#282d43;
+/* 字体颜色集合*/
+$white-text:#ffffff;
+$green-text:#23D7D2;
+$purple-text:#9D75EC;
+$gray-text:#8387A2;
+
