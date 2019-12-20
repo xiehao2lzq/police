@@ -40,7 +40,7 @@ export default {
     this.personId = this.$route.query.id;
     this.$axios({
       method: "get",
-      url: "http://" + this.url + ":9000/sjwl/webapi/person/stream/rule2",
+      url: "http://" + this.url + ":9000/sjwl/webapi/person/stream/rule2"+this.personId,
       headers: {
         Authorization: sessionStorage.getItem("Authorization")
       },
