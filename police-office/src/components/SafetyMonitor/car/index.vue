@@ -59,11 +59,11 @@
       </div>
       <div class="table2">
         <el-table :data="tableData" height="675" style="width: 100%" @cell-click="persondelete">
-         <!--  <el-table-column label="头像" width="150">
+          <!--  <el-table-column label="头像" width="150">
             <template slot-scope="scope">
               <img :src="scope.row.head_pic" width="100" height="100" class="head_pic" />
             </template>
-          </el-table-column> -->
+          </el-table-column>-->
           <el-table-column type="index"></el-table-column>
           <el-table-column prop="carNum" label="车牌号码"></el-table-column>
           <el-table-column prop="alarmLevel" label="报警等级" width="180"></el-table-column>
@@ -90,35 +90,51 @@
     <!-- 新增弹出框 -->
     <div class="carAdd">
       <el-dialog title="新增布控" :visible.sync="dialogFormVisible">
-        <el-form :model="form">
-          <el-form-item label="车牌号:" :label-width="formLabelWidth">
-            <el-input v-model="form.carNum" autocomplete="off" style="width:216px" placeholder="车牌号"></el-input>
+        <el-form :model="form" :rules="rules" ref="form">
+          <el-form-item label="车牌号:" :label-width="formLabelWidth" prop="carNum">
+            <el-input
+              v-model="form.carNum"
+              autocomplete="off"
+              style="width:216px"
+              placeholder="车牌号"
+              prop="carNum"
+            ></el-input>
           </el-form-item>
-          <el-form-item label="所属车辆库:" :label-width="formLabelWidth">
+          <el-form-item label="所属车辆库:" :label-width="formLabelWidth" prop="carTypeCode">
             <el-select v-model="form.carTypeCode" placeholder="请选择活动区域">
-              <el-option v-for="item in form.carTypes" :key="item.id" :label="item.libraryName" :value="item.type"></el-option>
+              <el-option
+                v-for="item in form.carTypes"
+                :key="item.id"
+                :label="item.libraryName"
+                :value="item.type"
+              ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="选择布控等级:" :label-width="formLabelWidth">
+          <el-form-item label="选择布控等级:" :label-width="formLabelWidth" prop="alarmLevel">
             <el-select v-model="form.alarmLevel" placeholder="请选择活动区域">
-              <el-option v-for="item in form.alarmLevels" :key="item.id" :label="item.name" :value="item.value"></el-option>
+              <el-option
+                v-for="item in form.alarmLevels"
+                :key="item.id"
+                :label="item.name"
+                :value="item.value"
+              ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="布控原因:" :label-width="formLabelWidth">
+          <el-form-item label="布控原因:" :label-width="formLabelWidth" prop="textarea">
             <el-input type="textarea" :rows="3" placeholder="请输入内容" v-model="form.textarea"></el-input>
           </el-form-item>
         </el-form>
         <div slot="footer" class="dialog-footer">
-          <el-button @click="dialogFormVisible = false">取 消</el-button>
-          <el-button type="primary" @click="addCar">确 定</el-button>
+          <el-button @click="cancel('form')">取 消</el-button>
+          <el-button type="primary" @click="addCar('form')">确 定</el-button>
         </div>
       </el-dialog>
     </div>
     <!-- 删除弹框 -->
     <div class="carDelete">
       <el-dialog title="删除布控" :visible.sync="dialogDeleteVisible">
-          <span>确定删除对该车辆的布控吗？</span>
-          <div slot="footer" class="dialog-footer">
+        <span>确定删除对该车辆的布控吗？</span>
+        <div slot="footer" class="dialog-footer">
           <el-button @click="dialogDeleteVisible = false">下次再说</el-button>
           <el-button type="primary" @click="ensureDelete">确定删除</el-button>
         </div>
@@ -132,7 +148,19 @@ import { mapState } from "vuex";
 export default {
   data() {
     return {
-       carTypes: [],
+      rules: {
+        carNum: [{ required: true, message: "请输入车牌", trigger: "blur" }],
+        carTypeCode: [
+          { required: true, message: "请选择车辆库类型", trigger: "change" }
+        ],
+        alarmLevel: [
+          { required: true, message: "请选择布控等级", trigger: "change" }
+        ],
+        textarea: [
+          { required: false, message: "请输入布控原因", trigger: "blur" }
+        ]
+      },
+      carTypes: [],
       carTypeCode: "",
       alarmLevels: [
         //布控库等级
@@ -155,35 +183,35 @@ export default {
       input: "",
       currentPage: 1,
       dialogFormVisible: false,
-      dialogDeleteVisible:false,
+      dialogDeleteVisible: false,
       form: {
-         carTypes: [],
-      carTypeCode: "",
-      alarmLevels: [
-        //布控库等级
-        {
-          name: "高",
-          value: 1
-        },
-        {
-          name: "中",
-          value: 2
-        },
-        {
-          name: "低",
-          value: 3
-        }
-      ],
-      alarmLevel: "",
-       carNum:"",
-      textarea:"",
+        carTypes: [],
+        carTypeCode: "",
+        alarmLevels: [
+          //布控库等级
+          {
+            name: "高",
+            value: 1
+          },
+          {
+            name: "中",
+            value: 2
+          },
+          {
+            name: "低",
+            value: 3
+          }
+        ],
+        alarmLevel: "",
+        carNum: "",
+        textarea: ""
       },
       formLabelWidth: "120px",
       selectIndex: 0,
       value: "",
       tableData: [],
       total: 1,
-      row:[]
+      row: []
     };
   },
   computed: {
@@ -195,59 +223,101 @@ export default {
     })
   },
   created() {
-    this.$nextTick(()=>{
-      this.getCarTableList()
-    })
+    this.$nextTick(() => {
+      this.getCarTableList();
+    });
   },
   methods: {
-    reset(){
+    reset() {
       this.carTypeCode = "";
       this.alarmLevel = "";
       this.input = "";
-      this.listInfo()
+      this.listInfo();
     },
-    search(){
-      this.listInfo()
+    search() {
+      this.listInfo();
     },
-     // 获取车辆库表格数据
-      getCarTableList () {
-        this.currentPage = 1
-        this.$axios({
-          method: 'get',
-          url: 'http://' + this.url + ':9000/sjwl/webapi/library/selectCarTypeList',
-          params: {
-            page:this.currentPage,
-            limit:18
-          }
-        }).then(res => {
-          if(res.data.code==1000){
-            this.carData = res.data.data.list
-            /* 缓存上 */
-            sessionStorage.setItem("carData",JSON.stringify(this.carData));
-            this.carTypes = JSON.parse(sessionStorage.getItem("carData"));
-            this.form.carTypes = JSON.parse(sessionStorage.getItem("carData"));
-            //console.log(res)
-            this.listInfo()
-          }
-        })
-      },
+    // 获取车辆库表格数据
+    getCarTableList() {
+      this.currentPage = 1;
+      this.$axios({
+        method: "get",
+        url:
+          "http://" + this.url + ":9000/sjwl/webapi/library/selectCarTypeList",
+        params: {
+          page: this.currentPage,
+          limit: 18
+        }
+      }).then(res => {
+        if (res.data.code == 1000) {
+          this.carData = res.data.data.list;
+          /* 缓存上 */
+          sessionStorage.setItem("carData", JSON.stringify(this.carData));
+          this.carTypes = JSON.parse(sessionStorage.getItem("carData"));
+          this.form.carTypes = JSON.parse(sessionStorage.getItem("carData"));
+          //console.log(res)
+          this.listInfo();
+        }
+      });
+    },
+    /* 打开新增 */
     add() {
       this.dialogFormVisible = true;
       this.form.carTypes = JSON.parse(sessionStorage.getItem("carData"));
     },
-    addCar(){
-      var data= {
-        carType:this.form.carTypeCode,
-        alarmLevel:this.form.alarmLevel,
-        controlReason:this.form.textarea,
-        carNum:this.form.carNum
-      }
+    /* 取消新增页面 */
+    cancel(formName) {
+      this.$refs[formName].resetFields();
+      this.dialogFormVisible = false;
+    },
+    /* 确认新增 */
+    addCar(formName) {
+      this.$refs[formName].validate(valid => {
+        if (valid) {
+          //符合条件走这个
+          // alert('submit!');
+          var data = {
+            carType: this.form.carTypeCode,
+            alarmLevel: this.form.alarmLevel,
+            controlReason: this.form.textarea,
+            carNum: this.form.carNum
+          };
+          this.$axios({
+            method: "post",
+            url: "http://" + this.url + ":9000/sjwl/webapi/car/groupCar",
+            data: JSON.stringify(data)
+          }).then(res => {
+            console.log(res);
+            if (res.data.code == 1000) {
+              this.$store.state.commonData.successMsg.unshift(res.data.msg);
+              this.$refs[formName].resetFields();
+              (this.form.carTypeCode = ""),
+                (this.form.alarmLevel = ""),
+                (this.form.carNum = ""),
+                (this.form.textarea = ""),
+                this.listInfo(); //刷新列表
+            } else {
+              this.$store.state.commonData.errorMsg.unshift(res.data.msg);
+            }
+          });
+          this.dialogFormVisible = false; //请求发送之后隐藏
+        } else {
+          console.log("error submit!!");
+          return false;
+        }
+      });
+      /* var data = {
+        carType: this.form.carTypeCode,
+        alarmLevel: this.form.alarmLevel,
+        controlReason: this.form.textarea,
+        carNum: this.form.carNum
+      };
       this.$axios({
         method: "post",
         url: "http://" + this.url + ":9000/sjwl/webapi/car/groupCar",
         data: JSON.stringify(data)
       }).then(res => {
-        console.log(res)
+        console.log(res);
         if (res.data.code == 1000) {
           this.$store.state.commonData.successMsg.unshift(res.data.msg);
           this.dialogFormVisible = false; //成功之后
@@ -255,30 +325,33 @@ export default {
             (this.form.alarmLevel = ""),
             (this.form.carNum = ""),
             (this.form.textarea = ""),
-          this.listInfo(); //刷新列表
+            this.listInfo(); //刷新列表
         } else {
           this.$store.state.commonData.errorMsg.unshift(res.data.msg);
         }
-      });
+      }); */
     },
-    persondelete(row, column, cell, event) {/* 打开删除提示 */
+    persondelete(row, column, cell, event) {
+      /* 打开删除提示 */
       if (column.label == "操作") {
-          this.dialogDeleteVisible = true
-          this.row = row
+        this.dialogDeleteVisible = true;
+        this.row = row;
       }
     },
-    ensureDelete(){/* 确认删除 */
-        this.tableData.splice(this.row.id,1)
-        this.$axios({
-          method: 'delete',
-          url: 'http://' + this.url + ':9000/sjwl/webapi/car/groupCar/'+this.row.id,
-        }).then(res => {
-          if(res.data.code==1000){
-            console.log(res)
-            this.listInfo()
-          }
-        })
-        this.dialogDeleteVisible = false
+    ensureDelete() {
+      /* 确认删除 */
+      this.tableData.splice(this.row.id, 1);
+      this.$axios({
+        method: "delete",
+        url:
+          "http://" + this.url + ":9000/sjwl/webapi/car/groupCar/" + this.row.id
+      }).then(res => {
+        if (res.data.code == 1000) {
+          console.log(res);
+          this.listInfo();
+        }
+      });
+      this.dialogDeleteVisible = false;
     },
     handleCurrentChange(val) {
       this.currentPage = val;
@@ -315,14 +388,14 @@ export default {
           carType: this.carTypeCode,
           limit: 20,
           page: this.currentPage,
-          likeStr:this.input,
-          alarmLevel:this.alarmLevel
+          likeStr: this.input,
+          alarmLevel: this.alarmLevel
         }
       }).then(res => {
-        if(res.data.code==1000){
-          this.tableData = res.data.data.list
-          this.currentPage = res.data.data.currentPage
-          this.total = res.data.data.totalRows
+        if (res.data.code == 1000) {
+          this.tableData = res.data.data.list;
+          this.currentPage = res.data.data.currentPage;
+          this.total = res.data.data.totalRows;
         }
         console.log(res);
         //var data = res.data.data;

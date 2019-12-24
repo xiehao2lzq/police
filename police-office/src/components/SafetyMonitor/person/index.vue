@@ -92,8 +92,8 @@
     <!-- 新增弹出框 -->
     <div class="personAdd">
       <el-dialog title="新增布控" :visible.sync="dialogFormVisible">
-        <el-form :model="form">
-          <el-form-item label="所属人员库:" :label-width="formLabelWidth">
+        <el-form :model="form" :rules="rules" ref="form">
+          <el-form-item label="所属人员库:" :label-width="formLabelWidth" prop="faceTypeCode">
             <el-select v-model="form.faceTypeCode" placeholder="人员库类型">
               <el-option
                 v-for="item in form.faceTypes"
@@ -103,16 +103,16 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="姓名:" :label-width="formLabelWidth">
+          <el-form-item label="姓名:" :label-width="formLabelWidth" prop="name">
             <el-input v-model="form.name" autocomplete="off" style="width:216px"></el-input>
           </el-form-item>
-          <el-form-item label="身份证号:" :label-width="formLabelWidth">
+          <el-form-item label="身份证号:" :label-width="formLabelWidth" prop="personPaperNum">
             <el-input v-model="form.personPaperNum" autocomplete="off" style="width:216px"></el-input>
           </el-form-item>
-          <el-form-item label="电话号:" :label-width="formLabelWidth">
+          <el-form-item label="电话号:" :label-width="formLabelWidth" prop="phone">
             <el-input v-model="form.phone" autocomplete="off" style="width:216px"></el-input>
           </el-form-item>
-          <el-form-item label="选择布控等级:" :label-width="formLabelWidth">
+          <el-form-item label="选择布控等级:" :label-width="formLabelWidth" prop="alarmLevel">
             <el-select v-model="form.alarmLevel" placeholder="选择布控等级">
               <el-option
                 v-for="item in form.alarmLevels"
@@ -122,10 +122,10 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="布控原因:" :label-width="formLabelWidth">
+          <el-form-item label="布控原因:" :label-width="formLabelWidth" prop="reason">
             <el-input type="textarea" :rows="3" placeholder="请输入内容" v-model="form.reason"></el-input>
           </el-form-item>
-          <el-form-item label="布控目标图片:" :label-width="formLabelWidth">
+          <el-form-item label="布控目标图片:" :label-width="formLabelWidth" prop="imageUrl">
             <div class="img img2">
               <input accept="image/jpeg" name="img" id="upload_file" type="file" @input="upLoad" />
               <img v-if="form.imageUrl " :src="form.imageUrl" class="avatar" />
@@ -135,8 +135,8 @@
           </el-form-item>
         </el-form>
         <div slot="footer" class="dialog-footer">
-          <el-button @click="dialogFormVisible = false">取 消</el-button>
-          <el-button type="primary" @click="addFace">确 定</el-button>
+          <el-button @click="cancel('form')">取 消</el-button>
+          <el-button type="primary" @click="addFace('form')">确 定</el-button>
         </div>
       </el-dialog>
     </div>
@@ -158,6 +158,23 @@ import { mapState } from "vuex";
 export default {
   data() {
     return {
+      rules: {
+        name: [{ required: true, message: "请输入姓名", trigger: "blur" }],
+        faceTypeCode: [
+          { required: true, message: "请选择人员库类型", trigger: "change" }
+        ],
+        personPaperNum: [
+          { required: false, message: "请输入身份证号", trigger: "blur" }
+        ],
+        phone: [{ required: false, message: "请输入电话号", trigger: "blur" }],
+        alarmLevel: [
+          { required: true, message: "请选择布控等级", trigger: "change" }
+        ],
+        reason: [
+          { required: false, message: "请输入布控原因", trigger: "blur" }
+        ],
+        imageUrl: [{ required: true, message: "请上传布控照片", trigger: "blur" }]
+      },
       faceTypes: [],
       faceTypeCode: "",
       alarmLevels: [
@@ -294,35 +311,52 @@ export default {
       this.dialogFormVisible = true;
       this.form.faceTypes = JSON.parse(sessionStorage.getItem("faceDate"));
     },
-    addFace() {
-      var data = {
-        faceTypeCode: this.form.faceTypeCode,
-        alarmLevel: this.form.alarmLevel,
-        controlReason: this.form.reason,
-        personName: this.form.name,
-        personImg: this.form.imageUrl,
-        phone: this.form.phone,
-        personPaperNum: this.form.personPaperNum
-      };
-      this.$axios({
-        method: "post",
-        url: "http://" + this.url + ":9000/sjwl/webapi/face/faceType",
-        data: JSON.stringify(data)
-      }).then(res => {
-        //console.log(res);
-        if (res.data.code == 1000) {
-          this.$store.state.commonData.successMsg.unshift(res.data.msg);
-          this.dialogFormVisible = false; //成功之后
-          (this.form.faceTypeCode = ""),
-            (this.form.alarmLevel = ""),
-            (this.form.phone = ""),
-            (this.form.reason = ""),
-            (this.form.name = ""),
-            (this.form.imageUrl = ""),
-            (this.form.personPaperNum = "");
-          this.listInfo(); //刷新列表
+    /* 取消新增页面 */
+    cancel(formName) {
+      this.$refs[formName].resetFields();
+      this.dialogFormVisible = false;
+    },
+    /*确认新增  */
+    addFace(formName) {
+      // console.log(formName)
+      this.$refs[formName].validate(valid => {
+        if (valid) {
+          //符合条件走这个
+          // alert('submit!');
+          var data = {
+            faceTypeCode: this.form.faceTypeCode,
+            alarmLevel: this.form.alarmLevel,
+            controlReason: this.form.reason,
+            personName: this.form.name,
+            personImg: this.form.imageUrl,
+            phone: this.form.phone,
+            personPaperNum: this.form.personPaperNum
+          };
+          this.$axios({
+            method: "post",
+            url: "http://" + this.url + ":9000/sjwl/webapi/face/faceType",
+            data: JSON.stringify(data)
+          }).then(res => {
+            //console.log(res);
+            if (res.data.code == 1000) {
+              this.$store.state.commonData.successMsg.unshift(res.data.msg);
+              this.$refs[formName].resetFields();
+              (this.form.faceTypeCode = ""),
+                (this.form.alarmLevel = ""),
+                (this.form.phone = ""),
+                (this.form.reason = ""),
+                (this.form.name = ""),
+                (this.form.imageUrl = ""),
+                (this.form.personPaperNum = "");
+              this.listInfo(); //刷新列表
+            } else {
+              this.$store.state.commonData.errorMsg.unshift(res.data.msg);
+            }
+          });
+          this.dialogFormVisible = false; //请求发送之后隐藏
         } else {
-          this.$store.state.commonData.errorMsg.unshift(res.data.msg);
+          console.log("error submit!!");
+          return false;
         }
       });
     },
@@ -344,8 +378,11 @@ export default {
           this.row.id
       }).then(res => {
         if (res.data.code == 1000) {
+          this.$store.state.commonData.successMsg.unshift(res.data.msg);
           this.listInfo();
           this.dialogDeleteVisible = false;
+        }else{
+          this.$store.state.commonData.errorMsg.unshift(res.data.msg);
         }
         console.log(res);
       });
