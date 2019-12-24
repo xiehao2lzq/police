@@ -4,7 +4,7 @@ export default{
    errorMsg:[],//错误提示
    selectedArr:[],//切换小区
    selectedValue:"",
-   wsUrl:"ws://47.103.36.248:9010/homePageMessage",
+   wsUrl:"ws://47.103.36.248:9010/homePageMessage", 
    wsUrl1:"ws://47.103.36.248:9010/personInOut",
    wsUrl2:"ws://47.103.36.248:9010/carInOut",
    popList:[],
