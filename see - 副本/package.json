@@ -12,7 +12,7 @@
   "dependencies": {
     "@antv/data-set": "^0.10.2",
     "@antv/g2": "^3.5.3",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "echarts": "^4.2.1",
     "element-ui": "^2.8.2",
     "jquery": "^3.4.0",
